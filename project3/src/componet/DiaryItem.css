@@ -1,0 +1,60 @@
+/* 전체 카드 */
+.DiaryItem {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* =====================
+   이미지 영역
+===================== */
+.img_section {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.img_section img {
+  width: 50px;
+  height: 50px;
+}
+
+/* 감정별 배경 (보너스) */
+.img_section_1 { background-color: #fff4cc; }
+.img_section_2 { background-color: #e8f5ff; }
+.img_section_3 { background-color: #e8ffe8; }
+.img_section_4 { background-color: #ffe8e8; }
+.img_section_5 { background-color: #f0e8ff; }
+
+/* =====================
+   정보 영역
+===================== */
+.info_section {
+  flex: 1;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.date_wrapper {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.content_wrapper {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* =====================
+   버튼 영역
+===================== */
+.button_section {
+  margin-left: 15px;
+}
