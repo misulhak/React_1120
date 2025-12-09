@@ -1,7 +1,10 @@
-import { useState } from 'react';
-import './App.css';
-import { Button, Navbar, Container, Nav } from 'react-bootstrap';
-import data from './db/fruit';
+import { useState } from "react";
+import "./App.css";
+import { Button, Navbar, Container, Nav } from 'react-bootstrap'
+import data from "./db/fruit";
+import Products from "./components/Products";
+import { Routes, Route, Link } from 'react-router-dom';
+import Detail from './components/Detail';
 
 function App() {
 
@@ -20,31 +23,25 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-      <div className="slider" />
 
-
-      <div className="container" style={{ textAlign: "center" }}>
-        <div className="row">
-          <div className="col-md-4">
-            <img src="/img/fruit1.jpg" width="80%" />
-            <h4>상품명</h4>
-            <p>상품정보</p>
-            <span>가격</span>
-          </div>
-          <div className="col-md-4">
-            <img src="/img/fruit2.jpg" width="80%" />
-            <h4>상품명</h4>
-            <p>상품정보</p>
-            <span>가격</span>
-          </div>
-          <div className="col-md-4">
-            <img src="/img/fruit3.jpg" width="80%" />
-            <h4>상품명</h4>
-            <p>상품정보</p>
-            <span>가격</span>
-          </div>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={
+          <>
+            <div className="slider"></div>
+            <div className="container" style={{ textAlign: "center" }}>
+              <div className="row">
+                {
+                  fruit.map((fruit) =>
+                    <Products {...fruit} key={fruit.id} />
+                  )
+                }
+              </div>
+            </div>
+          </>
+        }
+        />
+        <Route path="detail" element={<Detail />} />
+      </Routes>
 
     </div>
   );
