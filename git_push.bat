@@ -6,19 +6,11 @@ echo Starting Git automatic push...
 REM -- 1. 모든 변경사항 Staging Area에 추가
 git add .
 
-REM -- 2. 변경사항 커밋 (날짜와 시간으로 자동 메시지 생성)
-FOR /F "tokens=2 delims==" %%I IN ('WMIC OS GET LocalDateTime /F') DO SET "dt=%%I"
-SET "YYYY=%dt:~0,4%"
-SET "MM=%dt:~4,2%"
-SET "DD=%dt:~6,2%"
-SET "HH=%dt:~8,2%"
-SET "Min=%dt:~10,2%"
-SET "Sec=%dt:~12,2%"
-SET "CommitMsg=Auto commit on %YYYY%-%MM%-%DD% %HH%:%Min%:%Sec%"
+REM -- 2. 변경사항 커밋 (고정 메시지 사용)
+REM 날짜/시간 자동 생성 코드를 제거하고 고정된 메시지를 사용합니다.
+git commit -m "Auto commit via script"
 
-git commit -m "%CommitMsg%"
-
-REM -- 3. 원격 저장소로 푸시 (강제 푸시 사용 시 아래 주석 해제)
+REM -- 3. 원격 저장소로 푸시
 git push origin main
 REM git push origin main --force 
 
