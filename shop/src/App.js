@@ -169,13 +169,11 @@ function App() {
               </div>
             </div>
 
-            <div className="container" style={{ marginTop: "30px" }}>
+            <div className="container mt-3">
               <div className="row">
-                {veggie.map((ele, i) => {
-                  return (
-                    <ComVeggie veggie={veggie[i]} key={veggie[i].id} />
-                  );
-                })}
+                {veggie.map((item) => (
+                  <ComVeggie {...item} key={item.id} />
+                ))}
               </div>
             </div>
             <Footer />
