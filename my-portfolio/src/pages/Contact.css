@@ -1,0 +1,77 @@
+.contact-container {
+    padding: 40px 20px;
+    max-width: 600px;
+    /* 양식이 너무 넓지 않게 제한 */
+    margin: 0 auto;
+    /* 중앙 정렬 */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-container p {
+  /* 아래쪽에 20px 만큼의 여백을 줍니다. */
+    margin-bottom: 20px; 
+    color: #666;
+}
+
+/* 폼(양식) 전체 스타일 */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    /* 요소들을 세로로 쌓기 */
+    gap: 15px;
+    /* 요소들 사이 간격 */
+}
+
+/* 레이블(이름, 이메일, 메시지) 스타일 */
+.contact-form label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* 입력 필드 (input, textarea) 스타일 */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    /* 패딩이 너비에 포함되도록 설정 */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #007bff;
+    /* 포커스 시 테두리 색상 변경 */
+    outline: none;
+    /* 기본 아웃라인 제거 */
+}
+
+/* 버튼 스타일 (Home.css의 버튼과 유사하게) */
+.submit-btn {
+    background-color: #3f9ddb;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    /* 마우스 오버 시 손가락 모양 */
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #245b80;
+    /* 호버 시 더 진한 하늘색 */
+}
