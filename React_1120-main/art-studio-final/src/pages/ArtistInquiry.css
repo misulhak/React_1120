@@ -1,0 +1,116 @@
+.inquiry-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: serif;
+}
+
+.inquiry-container h2 {
+    font-size: 2.5rem;
+    color: #006400;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.inquiry-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ff4500;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input:not([type="file"]),
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #006400;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 100, 0, 0.2);
+}
+
+.file-upload-group small {
+    display: block;
+    margin-top: 5px;
+    color: #006400;
+    font-style: italic;
+}
+
+/* 제출 버튼 */
+.submit-button {
+    background-color: #ff4500;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+    /* 왼쪽 정렬 */
+}
+
+.submit-button:hover {
+    background-color: #cc3700;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 600px) {
+    .inquiry-container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    .inquiry-container h2 {
+        font-size: 2rem;
+    }
+
+    .submit-button {
+        width: 100%;
+        /* 모바일에서 버튼 전체 너비 사용 */
+        align-self: stretch;
+    }
+}

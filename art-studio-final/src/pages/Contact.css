@@ -1,0 +1,124 @@
+.contact-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: serif;
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    color: #006400;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-content-wrapper {
+    display: flex;
+    gap: 40px;
+    /* 섹션 간 간격 */
+    align-items: flex-start;
+}
+
+.contact-info-section,
+.contact-form-section {
+    flex: 1;
+    /* 두 섹션이 동일한 너비를 갖도록 */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-section h3,
+.contact-form-section h3 {
+    font-size: 1.8rem;
+    color: #ff4500;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.contact-info-section p {
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* 지도 스타일 */
+.map-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* 폼 스타일 (ArtistInquiry와 유사하게 정의) */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #006400;
+    outline: none;
+}
+
+.contact-submit-button {
+    background-color: #006400;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.contact-submit-button:hover {
+    background-color: #004d00;
+}
+
+/* ==================================================================== */
+/* 3. 반응형 미디어 쿼리 */
+/* ==================================================================== */
+
+@media (max-width: 900px) {
+    .contact-content-wrapper {
+        flex-direction: column;
+        /* 태블릿/모바일에서 세로로 쌓이도록 */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .contact-submit-button {
+        width: 100%;
+        /* 모바일에서 버튼 전체 너비 사용 */
+        align-self: stretch;
+    }
+}

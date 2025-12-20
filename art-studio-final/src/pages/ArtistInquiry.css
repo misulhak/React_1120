@@ -1,0 +1,139 @@
+/* [1] 공통 변수 - 대시보드와 톤앤매너를 맞춥니다 */
+:root {
+    --primary-green: #006400;
+    --accent-orange: #ff4500;
+    --accent-hover: #cc3700;
+    --text-main: #333;
+    --text-light: #666;
+    --border-color: #ddd;
+    --radius-default: 10px;
+    --radius-inner: 5px;
+    --shadow-soft: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.inquiry-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px; /* 내부 여백 살짝 확대 */
+    background-color: #fff;
+    border-radius: var(--radius-default);
+    box-shadow: var(--shadow-soft);
+    font-family: 'Noto Sans KR', serif; /* 폰트 통일감 */
+}
+
+/* [2] 타이틀 및 설명 */
+.inquiry-container h2 {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.inquiry-description {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* [3] 폼 구조 (다이어트 포인트) */
+.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* 필드셋 사이 간격 확대 */
+}
+
+fieldset {
+    border: 1px solid #eee; /* 너무 진한 선 대신 부드러운 선으로 */
+    padding: 25px;
+    border-radius: var(--radius-default);
+    margin: 0; /* 불필요한 마진 제거 */
+}
+
+legend {
+    font-size: 1.2rem; /* 너무 크지 않게 조정 */
+    font-weight: bold;
+    color: var(--accent-orange);
+    padding: 0 15px;
+    background: #fff; /* 선 중간에 깔끔하게 배치 */
+}
+
+/* [4] 입력 필드 공통 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group:last-child { margin-bottom: 0; }
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+/* input과 textarea 스타일 통합 */
+.form-group input:not([type="file"]),
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-inner);
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-green);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 100, 0, 0.1);
+}
+
+/* 파일 업로드 텍스트 */
+.file-upload-group small {
+    display: block;
+    margin-top: 8px;
+    color: var(--primary-green);
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* [5] 제출 버튼 (대시보드와 통일감) */
+.submit-button {
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px; /* ✅ 대시보드 버튼처럼 둥글게(알약형) 변경 */
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    box-shadow: 0 4px 10px rgba(255, 69, 0, 0.2);
+}
+
+.submit-button:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.3);
+}
+
+/* [6] 반응형 최적화 */
+@media (max-width: 600px) {
+    .inquiry-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .inquiry-container h2 { font-size: 1.8rem; }
+    
+    fieldset { padding: 15px; }
+
+    .submit-button {
+        width: 100%;
+        align-self: stretch;
+    }
+}

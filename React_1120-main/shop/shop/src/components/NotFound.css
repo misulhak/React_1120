@@ -1,0 +1,40 @@
+/* src/pages/NotFound.css */
+.notfound-wrap {
+  height: calc(100vh - 80px); /* 헤더 높이 고려 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.notfound-code {
+  font-size: 96px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.notfound-message {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.notfound-sub {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.notfound-btn {
+  padding: 12px 30px;
+  background-color: #222;
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.notfound-btn:hover {
+  background-color: #555;
+}

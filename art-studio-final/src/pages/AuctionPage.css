@@ -1,0 +1,468 @@
+/* ================================================= */
+/* 1. AuctionPage 레이아웃 및 그리드 스타일 */
+/* ================================================= */
+
+.auction-container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ✅ 헤더 섹션: 제목과 그리드 사이의 간격을 조절합니다. */
+.auction-header {
+    text-align: center;
+    margin-bottom: 80px; /* 👈 이 값을 통해 그리드와의 거리를 충분히 벌립니다. */
+}
+
+.auction-header h1 {
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 15px; /* 제목과 아래 설명 문구 사이의 간격 */
+    padding-bottom: 0;   /* 기존의 border-bottom을 제거하거나 조정하기 위해 초기화 */
+    border-bottom: none; 
+}
+
+.auction-header p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 0;
+}
+
+/* 라이브 경매 목록 그리드 */
+.auction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* ================================================= */
+/* 2. AuctionCard 개별 작품 스타일 (기존 유지) */
+/* ================================================= */
+
+.auction-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.auction-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* 이미지 컨테이너 */
+.image-container {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.auction-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.auction-card:hover .auction-image {
+    transform: scale(1.05);
+}
+
+/* LIVE 배지 스타일 */
+.badge-live {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #ff0000;
+    color: white;
+    padding: 4px 12px;
+    font-weight: bold;
+    font-size: 0.8em;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(255,0,0,0.3);
+    z-index: 2;
+}
+
+.auction-info {
+    padding: 20px;
+}
+
+.auction-info h3 {
+    font-size: 1.25em;
+    margin: 0 0 8px 0;
+    color: #111;
+}
+
+.artist-name {
+    color: #888;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
+
+/* 현재 입찰가 상태 */
+.price-tag {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.price-tag span {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.price-tag strong {
+    font-size: 1.3em;
+    color: #d32f2f;
+    font-weight: 800;
+}
+
+/* 타이머 스타일 */
+.timer {
+    background: #fdf2f2;
+    color: #d32f2f;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* 마감 스타일 */
+.auction-card.ended {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+}
+
+.timer-ended {
+    background: #eee;
+    color: #888;
+}
+
+/* ================================================= */
+/* 3. 버튼 및 모달 스타일 (기존 유지) */
+/* ================================================= */
+
+.bid-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.bid-button:hover:not(:disabled) {
+    background-color: #000;
+}
+
+.auction-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+}
+
+.auction-detail-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 900px;
+    position: relative;
+}
+
+/* ================================================= */
+/* 4. AuctionDetailModal 상세 스타일 (이미지 보정 포함) */
+/* ================================================= */
+
+.auction-modal-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 3000;
+    backdrop-filter: blur(8px);
+}
+
+.auction-detail-modal {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 1000px; /* 조금 더 넓게 조정 */
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px; right: 25px;
+    font-size: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc;
+    line-height: 1;
+}
+
+.modal-body {
+    display: flex;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+/* 🖼️ 이미지 섹션 보정: 사진이 잘리지 않고 예쁘게 나오도록 설정 */
+.image-section {
+    flex: 1.2; /* 이미지 공간을 살짝 더 넓게 */
+    background: #fdfdfd;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    border: 1px solid #eee;
+}
+
+.detail-image {
+    width: 100%;
+    height: 100%;
+    max-height: 500px;
+    object-fit: contain; /* 👈 중요: 이미지 비율을 유지하며 영역 안에 꽉 채움 */
+    display: block;
+}
+
+/* 📝 정보 섹션 */
+.auction-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auction-details h2 {
+    font-size: 2.2rem;
+    margin: 0;
+    color: #222;
+}
+
+.modal-divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+.current-bid-info {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+}
+
+.current-bid-info .label {
+    font-size: 1rem;
+    color: #888;
+}
+
+.current-price {
+    font-size: 2.2rem;
+    color: #d32f2f;
+    font-weight: 800;
+}
+
+.bid-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.bid-form input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+.bid-form input:focus {
+    border-color: #333;
+}
+
+.place-bid-btn {
+    width: 100%;
+    padding: 18px;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.place-bid-btn:hover {
+    background: #000;
+}
+
+.min-bid-info {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* ================================================= */
+/* 5. 작은 화면/모바일 최적화 (창 크기 대응) */
+/* ================================================= */
+
+@media (max-width: 850px) {
+    /* 1. 모달 전체가 화면을 넘지 않도록 제한 */
+    .auction-detail-modal {
+        padding: 25px;      /* 패딩을 조금 줄여 공간 확보 */
+        width: 95%;         /* 화면 너비에 맞게 조정 */
+        max-height: 90vh;   /* 화면 높이의 90%만 차지 */
+        overflow-y: auto;   /* 내용이 많으면 모달 안에서 스크롤 */
+        margin: 10px;
+    }
+
+    /* 2. 가로 배치를 세로 배치로 변경 */
+    .modal-body {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* 3. 이미지 영역 높이 조정 */
+    .image-section {
+        min-height: auto;   /* 높이 고정 해제 */
+        height: 250px;      /* 모바일에서는 이미지를 조금 작게 */
+    }
+
+    .detail-image {
+        max-height: 100%;
+    }
+
+    /* 4. 정보 섹션 폰트 크기 조절 */
+    .auction-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .current-price {
+        font-size: 1.8rem;
+    }
+
+    /* 5. 닫기 버튼 위치 조정 (모바일에서 누르기 편하게) */
+    .modal-close-btn {
+        top: 10px;
+        right: 15px;
+        font-size: 2rem;
+    }
+}
+
+/* 초소형 기기(아이폰 SE 등) 대응 */
+@media (max-height: 700px) {
+    .auction-detail-modal {
+        max-height: 95vh; /* 아주 낮은 화면에서는 조금 더 확장 */
+    }
+    .image-section {
+        height: 180px; /* 이미지를 더 줄여서 입찰 버튼이 바로 보이게 함 */
+    }
+}
+
+/* 퀵 입찰 섹션 컨테이너 */
+.quick-bid-section {
+    margin-bottom: 20px;
+}
+
+/* 🚀 퀵 입찰 버튼 스타일 */
+.quick-bid-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); /* 강렬한 레드 그라데이션 */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 튕기는 듯한 효과 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 마우스 올렸을 때 효과 */
+.quick-bid-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.4);
+    background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+}
+
+/* 클릭하는 순간 살짝 눌리는 효과 */
+.quick-bid-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* 버튼 아래 보조 텍스트 */
+.helper-text {
+    font-size: 0.85rem;
+    color: #888;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* OR 구분선 스타일 */
+.or-divider {
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    margin: 25px 0;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.or-divider span {
+    padding: 0 15px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #bbb;
+    text-transform: uppercase;
+}
+
+/* 모바일 대응 */
+@media (max-width: 850px) {
+    .modal-body {
+        flex-direction: column;
+    }
+    .image-section {
+        min-height: 300px;
+    }
+}
