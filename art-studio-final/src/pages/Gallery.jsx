@@ -4,6 +4,107 @@ import CheckoutModal from './CheckoutModal';
 import ArtworkModal from './ArtworkModal';
 import GalleryControls from './GalleryControls';
 
+import imgGreen from '../images/green.jpg'; 
+import imgPuddle from '../images/puddle.jpg';
+import imgForest from '../images/forest.jpg';
+import imgDream from '../images/dream.jpg';
+import imgflower from '../images/flower.jpg';
+import imgGoldFish from '../images/goldFish.jpg';
+import imgMelonSoda from '../images/melonSoda.jpg';
+import imgTiezang from '../images/tiezang.jpg';
+
+const INITIAL_ARTWORKS = [
+    {
+        id: 'seed-1',
+        title: "밀밭",
+        artistName: "박진희",
+        date: "2025-12-21",
+        price: 1111111,
+        image: imgGreen,
+        description: "산들산들",
+        status: "전시 중",
+        views: 45
+    },
+    {
+        id: 'seed-2',
+        title: "웅덩이",
+        artistName: "박진희",
+        date: "2020-12-20",
+        price: 1111111,
+        image: imgPuddle,
+        description: "일렁일렁",
+        status: "전시 중",
+        views: 32
+    },
+    {
+        id: 'seed-3',
+        title: "숲",
+        artistName: "박진희",
+        date: "2018-10-01",
+        price: 1111111,
+        image: imgForest,
+        description: "구불구불",
+        status: "전시 중",
+        views: 12
+    },
+    {
+        id: 'seed-4',
+        title: "꿈",
+        artistName: "박진희",
+        date: "2009-05-17",
+        price: 1111111,
+        image: imgDream,
+        description: "구불구불한 숲길을 표현했습니다.",
+        status: "판매 완료",
+        views: 12
+    },
+    {
+        id: 'seed-5',
+        title: "꽃",
+        artistName: "박진희",
+        date: "2025-02-22",
+        price: 1111111,
+        image: imgflower,
+        description: "흔들흔들",
+        status: "판매 완료",
+        views: 12
+    },
+    {
+        id: 'seed-6',
+        title: "금붕어",
+        artistName: "박진희",
+        date: "2015-06-10",
+        price: 1111111,
+        image: imgGoldFish,
+        description: "뻐끔뻐끔",
+        status: "판매 완료",
+        views: 12
+    },
+    {
+        id: 'seed-7',
+        title: "메론소다",
+        artistName: "박진희",
+        date: "2025-12-21",
+        price: 1111111,
+        image: imgMelonSoda,
+        description: "호록호록",
+        status: "전시 중",
+        views: 12
+    },
+    {
+        id: 'seed-8',
+        title: "볕뉘",
+        artistName: "박진희",
+        date: "2025-12-21",
+        price: 1111111,
+        image: imgTiezang,
+        description: "반짝반짝",
+        status: "판매 완료",
+        views: 12
+    }
+    
+];
+
 function Gallery() {
     const [allArtworks, setAllArtworks] = useState([]);
     const [selectedArtwork, setSelectedArtwork] = useState(null);
@@ -18,7 +119,8 @@ function Gallery() {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     const loadGalleryData = useCallback(() => {
-        const savedItems = JSON.parse(localStorage.getItem('galleryItems') || '[]');
+        const localStorageData = JSON.parse(localStorage.getItem('galleryItems') || '[]');
+        const savedItems = localStorageData.length > 0 ? localStorageData : INITIAL_ARTWORKS;
         const formatted = savedItems.map(item => ({
             id: item.id,
             title: item.title,
