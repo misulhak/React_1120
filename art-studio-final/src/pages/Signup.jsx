@@ -4,37 +4,32 @@ import './Signup.css';
 
 function Signup() {
     const navigate = useNavigate();
-    const [error, setError] = useState(''); // ✅ 에러 메시지 상태 관리
+    const [error, setError] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setError(''); // 시도할 때마다 에러 초기화
+        setError('');
 
         const formData = new FormData(e.target);
         const name = formData.get('name');
         const email = formData.get('email');
         const password = formData.get('password');
 
-        // [유효성 검사] 비밀번호 길이 체크 예시
         if (password.length < 8) {
             setError('비밀번호는 8자 이상이어야 합니다.');
             return;
         }
 
-        // 1. 기존 유저 목록 불러오기
         const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
 
-        // 2. 이메일 중복 체크
         if (existingUsers.some(user => user.email === email)) {
             setError('이미 가입된 이메일입니다.');
             return;
         }
 
-        // 3. 새 유저 저장
         const newUser = { name, email, password, role: 'user' };
         localStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
 
-        // 성공 알림 (성공은 짧게 알림창을 써도 무방합니다)
         alert(`${name}님, 회원가입이 완료되었습니다!`);
         navigate('/login');
     };
@@ -46,7 +41,6 @@ function Signup() {
                 <p className="signup-desc">전자 미술관의 회원이 되어 다양한 작품을 감상하세요.</p>
 
                 <form className="signup-form" onSubmit={handleSubmit}>
-                    {/* ✅ 에러 발생 시 로그인 페이지와 동일한 스타일의 에러 박스 표시 */}
                     {error && <div className="error-message">{error}</div>}
 
                     <div className="input-group">
@@ -68,7 +62,7 @@ function Signup() {
                 </form>
 
                 <div className="signup-footer">
-                    <p>이미 계정이 있으신가요? 
+                    <p>이미 계정이 있으신가요?
                         <span className="link-text" onClick={() => navigate('/login')}> 로그인</span>
                     </p>
                     <hr />

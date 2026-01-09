@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Storage } from '../utils/storage'; 
+import { Storage } from '../utils/storage';
 import './Login.css';
 
 function Login({ onLogin }) {
     const [userType, setUserType] = useState('user');
-    const [error, setError] = useState(''); 
-    // ✅ 작가 코드 숫자만 관리하기 위한 상태 추가
+    const [error, setError] = useState('');
     const [artistDigit, setArtistDigit] = useState('');
     const navigate = useNavigate();
 
-    // ✅ 숫자만 입력되게 필터링하는 핸들러
     const handleArtistCodeChange = (e) => {
         const onlyNumber = e.target.value.replace(/[^0-9]/g, '');
         setArtistDigit(onlyNumber);
@@ -18,14 +16,13 @@ function Login({ onLogin }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setError(''); 
+        setError('');
 
         const formData = new FormData(e.target);
         const email = formData.get('email');
         const password = formData.get('password');
         const phone = formData.get('phone');
-        
-        // ✅ 최종 인증 코드는 'ART-' + 입력한숫자 조합
+
         const artistCode = `ART-${artistDigit}`;
 
         if (userType === 'artist') {
@@ -61,7 +58,7 @@ function Login({ onLogin }) {
     const handleTabChange = (type) => {
         setUserType(type);
         setError('');
-        setArtistDigit(''); // 탭 바꿀 때 입력값 초기화
+        setArtistDigit('');
     };
 
     return (
@@ -110,17 +107,16 @@ function Login({ onLogin }) {
                         <div className="input-group">
                             <label>작가 인증 코드</label>
                             <div className="artist-code-input-wrapper" style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
-                                {/* 👈 ART- 접두사 고정 */}
                                 <span style={{ position: 'absolute', left: '12px', color: '#555', fontWeight: 'bold' }}>
                                     ART-
                                 </span>
-                                <input 
-                                    type="text" 
-                                    placeholder="숫자만 입력" 
+                                <input
+                                    type="text"
+                                    placeholder="숫자만 입력"
                                     value={artistDigit}
                                     onChange={handleArtistCodeChange}
-                                    style={{ paddingLeft: '55px' }} // ART- 글자만큼 여백
-                                    required 
+                                    style={{ paddingLeft: '55px' }}
+                                    required
                                 />
                             </div>
                         </div>

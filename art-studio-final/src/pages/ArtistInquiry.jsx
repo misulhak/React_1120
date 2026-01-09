@@ -92,7 +92,7 @@ function ArtistInquiry() {
                 {/* 작품 정보 섹션 */}
                 <fieldset>
                     <legend>작품 및 활동 정보</legend>
-                    <FormInput label="주요 작품 장르 *" name="genre" value={formData.genre} onChange={handleChange} placeholder="예: 유화, 조각 등" required />
+                    <FormInput label="주요 작품 장르 *" name="genre" value={formData.genre} onChange={handleChange} placeholder="예: 회화, 조각 등" required />
                     <FormInput 
                         label="보유 작품 수 *" 
                         name="artworkCount" 
@@ -127,7 +127,6 @@ function ArtistInquiry() {
     );
 }
 
-// 4. 반복되는 Input 구조를 컴포넌트화하여 가독성 향상
 const FormInput = ({ label, ...props }) => (
     <div className="form-group">
         <label>{label}</label>

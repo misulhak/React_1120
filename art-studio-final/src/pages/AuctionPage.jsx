@@ -3,7 +3,6 @@ import AuctionCard from './AuctionCard.jsx';
 import AuctionDetailModal from './AuctionDetailModal.jsx';
 import './AuctionPage.css';
 
-// ✅ 이미지를 직접 import 합니다 (경로 에러 원천 차단)
 import willowImg from '../images/willow.jpg';
 import shadowImg from '../images/shadow.jpg';
 import hometownImg from '../images/hometown.jpg';
@@ -12,7 +11,7 @@ const initialAuctionData = [
     {
         id: 101,
         title: "고향",
-        artist: "이희정",
+        artist: "김대철",
         startingPrice: 500000,
         currentBid: 500000,
         imageUrl: hometownImg, // import한 변수 사용
@@ -22,7 +21,7 @@ const initialAuctionData = [
     {
         id: 102,
         title: "그림자",
-        artist: "선하영",
+        artist: "김대철",
         startingPrice: 500000,
         currentBid: 500000,
         imageUrl: shadowImg,
@@ -32,7 +31,7 @@ const initialAuctionData = [
     {
         id: 102,
         title: "버드나무",
-        artist: "이아름",
+        artist: "김대철",
         startingPrice: 500000,
         currentBid: 500000,
         imageUrl: willowImg,

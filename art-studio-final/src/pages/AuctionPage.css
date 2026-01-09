@@ -1,6 +1,4 @@
-/* ================================================= */
 /* 1. AuctionPage 레이아웃 및 그리드 스타일 */
-/* ================================================= */
 
 .auction-container {
     padding: 60px 20px;
@@ -8,18 +6,18 @@
     margin: 0 auto;
 }
 
-/* ✅ 헤더 섹션: 제목과 그리드 사이의 간격을 조절합니다. */
+/* ✅ 헤더 섹션 */
 .auction-header {
     text-align: center;
-    margin-bottom: 80px; /* 👈 이 값을 통해 그리드와의 거리를 충분히 벌립니다. */
+    margin-bottom: 80px;
 }
 
 .auction-header h1 {
     font-size: 2.5em;
     color: #222;
-    margin-bottom: 15px; /* 제목과 아래 설명 문구 사이의 간격 */
-    padding-bottom: 0;   /* 기존의 border-bottom을 제거하거나 조정하기 위해 초기화 */
-    border-bottom: none; 
+    margin-bottom: 15px;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
 .auction-header p {
@@ -36,9 +34,7 @@
     margin-bottom: 60px;
 }
 
-/* ================================================= */
-/* 2. AuctionCard 개별 작품 스타일 (기존 유지) */
-/* ================================================= */
+/* AuctionCard 개별 작품 스타일 */
 
 .auction-card {
     background: #fff;
@@ -87,7 +83,7 @@
     font-size: 0.8em;
     border-radius: 20px;
     letter-spacing: 1px;
-    box-shadow: 0 2px 8px rgba(255,0,0,0.3);
+    box-shadow: 0 2px 8px rgba(255, 0, 0, 0.3);
     z-index: 2;
 }
 
@@ -148,9 +144,7 @@
     color: #888;
 }
 
-/* ================================================= */
-/* 3. 버튼 및 모달 스타일 (기존 유지) */
-/* ================================================= */
+/* 3. 버튼 및 모달 스타일 */
 
 .bid-button {
     width: 100%;
@@ -171,9 +165,14 @@
 
 .auction-modal-backdrop {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 2000;
     backdrop-filter: blur(5px);
 }
@@ -187,15 +186,18 @@
     position: relative;
 }
 
-/* ================================================= */
-/* 4. AuctionDetailModal 상세 스타일 (이미지 보정 포함) */
-/* ================================================= */
+/* 4. AuctionDetailModal 상세 스타일 */
 
 .auction-modal-backdrop {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.85);
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 3000;
     backdrop-filter: blur(8px);
 }
@@ -205,14 +207,15 @@
     padding: 40px;
     border-radius: 24px;
     width: 90%;
-    max-width: 1000px; /* 조금 더 넓게 조정 */
+    max-width: 1000px;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .modal-close-btn {
     position: absolute;
-    top: 20px; right: 25px;
+    top: 20px;
+    right: 25px;
     font-size: 2.5rem;
     background: none;
     border: none;
@@ -227,9 +230,9 @@
     margin-top: 10px;
 }
 
-/* 🖼️ 이미지 섹션 보정: 사진이 잘리지 않고 예쁘게 나오도록 설정 */
+/* 🖼️ 이미지 섹션 보정 */
 .image-section {
-    flex: 1.2; /* 이미지 공간을 살짝 더 넓게 */
+    flex: 1.2;
     background: #fdfdfd;
     border-radius: 12px;
     overflow: hidden;
@@ -244,8 +247,7 @@
     width: 100%;
     height: 100%;
     max-height: 500px;
-    object-fit: contain; /* 👈 중요: 이미지 비율을 유지하며 영역 안에 꽉 채움 */
-    display: block;
+    object-fit: contain;/ display: block;
 }
 
 /* 📝 정보 섹션 */
@@ -333,21 +335,18 @@
     text-align: center;
 }
 
-/* ================================================= */
 /* 5. 작은 화면/모바일 최적화 (창 크기 대응) */
-/* ================================================= */
 
 @media (max-width: 850px) {
-    /* 1. 모달 전체가 화면을 넘지 않도록 제한 */
+
     .auction-detail-modal {
-        padding: 25px;      /* 패딩을 조금 줄여 공간 확보 */
-        width: 95%;         /* 화면 너비에 맞게 조정 */
-        max-height: 90vh;   /* 화면 높이의 90%만 차지 */
-        overflow-y: auto;   /* 내용이 많으면 모달 안에서 스크롤 */
+        padding: 25px;
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
         margin: 10px;
     }
 
-    /* 2. 가로 배치를 세로 배치로 변경 */
     .modal-body {
         flex-direction: column;
         gap: 20px;
@@ -355,8 +354,8 @@
 
     /* 3. 이미지 영역 높이 조정 */
     .image-section {
-        min-height: auto;   /* 높이 고정 해제 */
-        height: 250px;      /* 모바일에서는 이미지를 조금 작게 */
+        min-height: auto;
+        height: 250px;
     }
 
     .detail-image {
@@ -383,10 +382,13 @@
 /* 초소형 기기(아이폰 SE 등) 대응 */
 @media (max-height: 700px) {
     .auction-detail-modal {
-        max-height: 95vh; /* 아주 낮은 화면에서는 조금 더 확장 */
+        max-height: 95vh;
+        /* 아주 낮은 화면에서는 조금 더 확장 */
     }
+
     .image-section {
-        height: 180px; /* 이미지를 더 줄여서 입찰 버튼이 바로 보이게 함 */
+        height: 180px;
+        /* 이미지를 더 줄여서 입찰 버튼이 바로 보이게 함 */
     }
 }
 
@@ -399,7 +401,7 @@
 .quick-bid-btn {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%); /* 강렬한 레드 그라데이션 */
+    background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
     color: white;
     border: none;
     border-radius: 12px;
@@ -407,7 +409,7 @@
     font-weight: 800;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 튕기는 듯한 효과 */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -462,6 +464,7 @@
     .modal-body {
         flex-direction: column;
     }
+
     .image-section {
         min-height: 300px;
     }

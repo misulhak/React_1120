@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Gallery.css';
 
-// ✅ props에 onPaymentSuccess를 추가하여 부모(Gallery)와 통신합니다.
 function CheckoutModal({ artwork, closeModal, onPaymentSuccess }) {
     if (!artwork) return null;
 
@@ -44,16 +43,12 @@ function CheckoutModal({ artwork, closeModal, onPaymentSuccess }) {
             status: "결제 완료"
         };
 
-        // 2. 유저별 구매 내역 저장
         const purchaseKey = `purchases_${currentUser.email}`;
         const existingPurchases = JSON.parse(localStorage.getItem(purchaseKey) || "[]");
         localStorage.setItem(purchaseKey, JSON.stringify([orderData, ...existingPurchases]));
 
-        // 3. 전체 갤러리 데이터에서 해당 작품 상태를 '판매 완료'로 업데이트
         const savedGalleryItems = JSON.parse(localStorage.getItem('galleryItems') || "[]");
-        
-        // 원본 데이터가 비어있을 경우를 대비해 초기화 로직 확인 필요하나, 
-        // 여기서는 기존 데이터를 매핑하여 업데이트합니다.
+
         const updatedGalleryItems = savedGalleryItems.map(item => {
             if (item.id === artwork.id) {
                 return { ...item, status: '판매 완료' };
@@ -62,12 +57,10 @@ function CheckoutModal({ artwork, closeModal, onPaymentSuccess }) {
         });
         localStorage.setItem('galleryItems', JSON.stringify(updatedGalleryItems));
 
-        // ✅ 4. 핵심: 부모 컴포넌트(Gallery.jsx)의 상태를 즉시 업데이트하도록 함수 호출
         if (onPaymentSuccess) {
             onPaymentSuccess(artwork.id);
         }
 
-        // 5. 스토리지 이벤트 강제 발생 (다른 탭/창 동기화용)
         window.dispatchEvent(new Event('storage'));
 
         alert(`"${artwork.title}" 작품의 주문이 완료되었습니다!`);
@@ -78,7 +71,7 @@ function CheckoutModal({ artwork, closeModal, onPaymentSuccess }) {
         <div className="modal-backdrop" onClick={closeModal}>
             <div className="modal-content checkout-modal" onClick={(e) => e.stopPropagation()}>
                 <button className="modal-close-btn" onClick={closeModal}>&times;</button>
-                
+
                 <h3 className="checkout-title">구매 확정 및 결제</h3>
 
                 <form onSubmit={handleCheckout} className="checkout-form">
@@ -93,7 +86,7 @@ function CheckoutModal({ artwork, closeModal, onPaymentSuccess }) {
                     </section>
 
                     <section className="shipping-section">
-                        <h4 style={{marginBottom: '10px', color: '#006400'}}>배송지 정보</h4>
+                        <h4 style={{ marginBottom: '10px', color: '#006400' }}>배송지 정보</h4>
                         <div className="form-grid">
                             <div className="form-group">
                                 <label>받는 분 *</label>
@@ -110,15 +103,15 @@ function CheckoutModal({ artwork, closeModal, onPaymentSuccess }) {
                         </div>
                     </section>
 
-                    <section className="payment-section" style={{marginTop: '20px'}}>
-                        <h4 style={{marginBottom: '10px', color: '#006400'}}>결제 수단</h4>
-                        <div className="payment-options" style={{display: 'flex', gap: '10px'}}>
+                    <section className="payment-section" style={{ marginTop: '20px' }}>
+                        <h4 style={{ marginBottom: '10px', color: '#006400' }}>결제 수단</h4>
+                        <div className="payment-options" style={{ display: 'flex', gap: '10px' }}>
                             <label className={`payment-label ${paymentMethod === 'card' ? 'active' : ''}`}>
-                                <input type="radio" name="payment" value="card" checked={paymentMethod === 'card'} onChange={(e) => setPaymentMethod(e.target.value)} style={{display: 'none'}} />
+                                <input type="radio" name="payment" value="card" checked={paymentMethod === 'card'} onChange={(e) => setPaymentMethod(e.target.value)} style={{ display: 'none' }} />
                                 💳 신용/체크카드
                             </label>
                             <label className={`payment-label ${paymentMethod === 'transfer' ? 'active' : ''}`}>
-                                <input type="radio" name="payment" value="transfer" checked={paymentMethod === 'transfer'} onChange={(e) => setPaymentMethod(e.target.value)} style={{display: 'none'}} />
+                                <input type="radio" name="payment" value="transfer" checked={paymentMethod === 'transfer'} onChange={(e) => setPaymentMethod(e.target.value)} style={{ display: 'none' }} />
                                 🏦 계좌 이체
                             </label>
                         </div>

@@ -1,18 +1,18 @@
 /* [1] 레이아웃 & 헤더 */
-.user-dash-container { 
-    background: #fdfdfd; 
-    min-height: 100vh; 
-    display: flex; 
-    flex-direction: column; 
-    font-family: 'Noto Sans KR', sans-serif; 
+.user-dash-container {
+    background: #fdfdfd;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.user-dash-header { 
-    background: linear-gradient(135deg, rgba(176, 228, 123, 0.6) 10%, rgba(255, 182, 193, 0.6)) !important; 
-    backdrop-filter: blur(20px); 
-    -webkit-backdrop-filter: blur(20px); 
-    width: 100%; 
-    padding: 100px 0; 
+.user-dash-header {
+    background: linear-gradient(135deg, rgba(176, 228, 123, 0.6) 10%, rgba(255, 182, 193, 0.6));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    width: 100%;
+    padding: 100px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,75 +21,89 @@
 }
 
 .user-dash-header h1 {
-    color: white !important;
-    font-size: 3.2rem; 
-    font-weight: 700 !important;
+    color: white;
+    font-size: 3.2rem;
+    font-weight: 700;
     margin: 0;
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* [2] 메인 컨텐츠 & 카드 공통 */
-.user-dash-content { 
-    max-width: 1200px; 
-    margin: 0 auto 40px; 
-    display: flex; 
-    gap: 30px; 
-    padding: 0 20px; 
-    transform: translateY(20px); 
-    z-index: 10; 
+.user-dash-content {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+    transform: translateY(20px);
+    z-index: 10;
 }
 
-.user-profile-card, .user-main-area { 
-    background: #fff !important; 
-    border-radius: 25px; 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); 
+.user-profile-card,
+.user-main-area {
+    background: #fff;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
 /* [3] 사이드바 & 프로필 */
-.user-sidebar { flex: 0 0 300px; }
-.user-profile-card { 
-    padding: 40px 20px 60px !important; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+.user-sidebar {
+    flex: 0 0 300px;
 }
 
-.profile-edit-btn { 
-    margin-top: 30px; 
-    padding: 8px 35px; 
-    border-radius: 10px; 
-    border: 1px solid #f0f0f0; 
-    background: #fff; 
-    color: #888; 
-    font-size: 0.85rem; 
-    cursor: pointer; 
+.user-profile-card {
+    padding: 40px 20px 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-edit-btn {
+    margin-top: 30px;
+    padding: 8px 35px;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+    background: #fff;
+    color: #888;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.profile-edit-btn:hover {
+    background: #fafafa;
+    color: #333;
 }
 
 /* [4] 포트폴리오 구역 & 작품 카드 */
-.user-main-area { flex: 1; padding: 40px !important; }
-.purchase-card { 
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between; 
-    border: 1px solid #f8f8f8; 
-    border-radius: 18px; 
-    padding: 30px; 
-    margin-bottom: 25px; 
+.user-main-area {
+    flex: 1;
+    padding: 40px;
 }
 
-/* ✅ 우측 가격 및 상태 영역 (위아래 정렬 유지) */
-.p-price-status {
+.purchase-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #f8f8f8;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.p-price-status,
+.status-control-group {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+}
+
+.p-price-status {
     gap: 15px;
 }
 
 .status-control-group {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-end;
-    gap: 10px; 
+    gap: 10px;
 }
 
 .p-price {
@@ -100,108 +114,202 @@
 
 /* [5] 상태 선택 버튼 */
 .status-select {
-    width: auto;
     min-width: 100px;
     height: 34px;
-    border-radius: 20px !important;
-    padding: 0 15px !important;
-    background-color: #ffffff !important; 
-    color: #7a9e61 !important; 
-    border: 1px solid #eee !important;
+    border-radius: 20px;
+    padding: 0 15px;
+    background-color: #ffffff;
+    color: #7a9e61;
+    border: 1px solid #eee;
     font-weight: bold;
     font-size: 0.85rem;
     text-align: center;
     cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
     transition: all 0.3s ease;
 }
 
 .status-select.is-sold-out {
-    background-color: #fff0f3 !important; 
-    color: #d63031 !important; 
-    border: 1px solid #ffccd5 !important;
+    background-color: #fff0f3;
+    color: #d63031;
+    border-color: #ffccd5;
 }
 
-/* ✅ 수정/삭제 버튼 영역 (둥글게 수정된 부분) */
-.action-cells { 
-    display: flex; 
-    gap: 6px; /* 버튼 사이의 간격을 아주 조금 더 가깝게 조절 */
+/* [6] 수정/삭제 버튼 영역 */
+.action-cells {
+    display: flex;
+    gap: 6px;
 }
 
-.action-cells button { 
-    cursor: pointer; 
-    font-size: 0.8rem; 
+.action-cells button {
+    cursor: pointer;
+    font-size: 0.8rem;
     font-weight: bold;
     height: 32px;
     padding: 0 15px;
-    border-radius: 20px; /* 둥근 모양 유지 */
+    border-radius: 20px;
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
+    transition: 0.2s;
 }
 
-/* 수정 버튼 배경색 */
-.action-cells button:first-child { 
-    background-color: #f5f5f5 !important; 
-    color: #999 !important; 
+.action-cells button:first-child {
+    background-color: #f5f5f5;
+    color: #999;
 }
 
-/* 삭제 버튼 배경색 */
-.action-cells .delete-btn { 
-    background-color: #fff0f3 !important; 
-    color: #e5989b !important; 
+.action-cells .delete-btn {
+    background-color: #fff0f3;
+    color: #e5989b;
 }
 
-.action-cells button:hover { 
+.action-cells button:hover {
     filter: brightness(0.95);
-    color: #333 !important; 
+    color: #333;
 }
 
-/* [6] 모달 관련 */
-.modal-overlay { 
-    position: fixed; inset: 0; 
-    background: rgba(0, 0, 0, 0.4); 
-    display: flex; justify-content: center; align-items: center; 
-    z-index: 2000; backdrop-filter: blur(8px); 
+/* [7] 모달 관련 */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(8px);
 }
 
-.modal-content { 
-    background: #fff; width: 95%; max-width: 500px; padding: 40px; 
-    border-radius: 30px; display: flex; flex-direction: column; gap: 25px; 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1); animation: modalAppear 0.3s ease-out; box-sizing: border-box;
+.modal-content {
+    background: #fff;
+    width: 95%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+    animation: modalAppear 0.3s ease-out;
+    box-sizing: border-box;
 }
 
-.upload-form, .form-group { display: flex; flex-direction: column; gap: 20px; width: 100%; }
-.form-group { gap: 8px; }
-.form-group input, .form-group textarea {
-    width: 100%; padding: 12px; border: 1px solid #eee; border-radius: 8px; box-sizing: border-box;
+.upload-form,
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
+.upload-form {
+    gap: 20px;
+}
+
+.form-group {
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* 장르 체크박스 그룹 최적화 */
 .genre-checkbox-group {
-    display: grid !important; grid-template-columns: repeat(2, 1fr) !important; 
-    gap: 15px 25px; background: #fdfdfd; padding: 20px; border-radius: 12px; 
-    border: 1px solid #f0f0f0; box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 30px;
+    background: #fdfdfd;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box;
 }
 
-.genre-check-item { display: flex; align-items: center; gap: 18px !important; font-size: 0.95rem; color: #555; cursor: pointer; }
-.genre-check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: #b0e47b; flex-shrink: 0; }
-
-.modal-btns { display: flex !important; gap: 12px; margin-top: 10px; }
-.modal-btns button { 
-    flex: 1; height: 50px; border-radius: 12px; font-weight: bold; 
-    cursor: pointer; border: none; display: flex; justify-content: center; align-items: center;
+.genre-check-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #444;
+    cursor: pointer;
 }
 
-.submit-upload-btn { background: #b0e47b !important; color: white !important; }
-.cancel-prod-btn { background: #f5f5f5 !important; color: #888 !important; }
+.genre-check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    /* 깔끔하게 여백 정리 */
+    accent-color: #b0e47b;
+    cursor: pointer;
+}
 
-@keyframes modalAppear { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.genre-check-item span {
+    white-space: nowrap;
+    line-height: 1;
+}
 
-/* [7] 반응형 */
-@media (max-width: 900px) { 
-    .user-dash-content { flex-direction: column; } 
-    .user-sidebar { flex: none; width: 100%; } 
+.modal-btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.modal-btns button {
+    flex: 1;
+    height: 50px;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.submit-upload-btn {
+    background: #b0e47b;
+    color: white;
+}
+
+.cancel-prod-btn {
+    background: #f5f5f5;
+    color: #888;
+}
+
+.modal-btns button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* [8] 반응형 */
+@media (max-width: 900px) {
+    .user-dash-content {
+        flex-direction: column;
+    }
+
+    .user-sidebar {
+        flex: none;
+        width: 100%;
+    }
 }

@@ -8,7 +8,6 @@ function Home() {
     return (
         <div className="home-container">
 
-            {/* 1. Hero Section (메인 비주얼) */}
             <section className="hero-section">
                 <div className="hero-background">
                     <img
@@ -17,12 +16,11 @@ function Home() {
                         className="hero-image"
                     />
                 </div>
-                
+
                 <div className="hero-content">
                     <h1>전자 미술관</h1>
                     <p>예술과 영감이 만나는 공간에 오신 걸 환영합니다.</p>
-                    
-                    {/* ✅ 버튼들을 가로로 나열하기 위한 그룹 박스 추가 */}
+
                     <div className="hero-action-group">
                         <Link to="/gallery" className="cta-button">
                             작품 보기
@@ -34,7 +32,6 @@ function Home() {
                 </div>
             </section>
 
-            {/* 2. About/Vision Section */}
             <section className="vision-section">
                 <h2>우리의 비전</h2>
                 <div className="vision-grid">
@@ -56,7 +53,6 @@ function Home() {
                 </Link>
             </section>
 
-            {/* 3. Footer */}
             <footer className="home-footer">
                 <p>&copy; 2024 아트 스튜디오 갤러리. All rights reserved.</p>
             </footer>

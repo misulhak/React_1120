@@ -4,7 +4,7 @@ import CheckoutModal from './CheckoutModal';
 import ArtworkModal from './ArtworkModal';
 import GalleryControls from './GalleryControls';
 
-import imgGreen from '../images/green.jpg'; 
+import imgGreen from '../images/green.jpg';
 import imgPuddle from '../images/puddle.jpg';
 import imgForest from '../images/forest.jpg';
 import imgDream from '../images/dream.jpg';
@@ -55,7 +55,7 @@ function Gallery() {
     const loadGalleryData = useCallback(() => {
         const localStorageData = JSON.parse(localStorage.getItem('galleryItems') || '[]');
         const savedItems = localStorageData.length > 0 ? localStorageData : INITIAL_ARTWORKS;
-        
+
         if (localStorageData.length === 0) {
             localStorage.setItem('galleryItems', JSON.stringify(INITIAL_ARTWORKS));
         }
@@ -91,17 +91,17 @@ function Gallery() {
 
     const handlePaymentSuccess = (artworkId) => {
         const savedItems = JSON.parse(localStorage.getItem('galleryItems') || '[]');
-        const updatedStorage = savedItems.map(item => 
+        const updatedStorage = savedItems.map(item =>
             item.id === artworkId ? { ...item, status: '판매 완료' } : item
         );
         localStorage.setItem('galleryItems', JSON.stringify(updatedStorage));
 
-        setAllArtworks(prev => prev.map(item => 
+        setAllArtworks(prev => prev.map(item =>
             item.id === artworkId ? { ...item, status: '판매 완료' } : item
         ));
-        
+
         setCheckoutArtwork(null);
-        setSelectedArtwork(null); 
+        setSelectedArtwork(null);
         alert("결제가 완료되었습니다! 판매 완료 표시를 확인하세요.");
     };
 
@@ -120,7 +120,7 @@ function Gallery() {
     const handleArtworkClick = (artwork) => {
         if (artwork.status === '판매 완료') return;
         setSelectedArtwork(artwork);
-        
+
         const savedItems = JSON.parse(localStorage.getItem('galleryItems') || '[]');
         const updated = savedItems.map(item =>
             item.id === artwork.id ? { ...item, views: (item.views || 0) + 1 } : item
@@ -172,8 +172,8 @@ function Gallery() {
                 {filteredArtworks.slice(0, visibleCount).map((artwork) => {
                     const isSoldOut = artwork.status === '판매 완료';
                     return (
-                        <div 
-                            key={artwork.id} 
+                        <div
+                            key={artwork.id}
                             className={`artwork-card ${isSoldOut ? 'is-sold-out' : ''}`}
                             onClick={() => !isSoldOut && handleArtworkClick(artwork)}
                             style={{ cursor: isSoldOut ? 'default' : 'pointer' }}
@@ -195,7 +195,7 @@ function Gallery() {
                                 <h3>{artwork.title}</h3>
                                 <p className="artist-name">{artwork.artist} <span className="art-year">({artwork.year})</span></p>
                                 <p className="art-price">
-                                    {isSoldOut ? <span className="price-sold" style={{color: 'red', fontWeight: 'bold'}}>판매완료</span> : `₩${artwork.price.toLocaleString()}`}
+                                    {isSoldOut ? <span className="price-sold" style={{ color: 'red', fontWeight: 'bold' }}>판매완료</span> : `₩${artwork.price.toLocaleString()}`}
                                 </p>
                                 <div className="card-footer">
                                     <span className="view-count-badge">👁️ {artwork.views}</span>
@@ -224,18 +224,18 @@ function Gallery() {
             </div>
 
             {selectedArtwork && (
-                <ArtworkModal 
-                    artwork={selectedArtwork} 
-                    closeModal={() => setSelectedArtwork(null)} 
-                    handlePurchase={setCheckoutArtwork} 
+                <ArtworkModal
+                    artwork={selectedArtwork}
+                    closeModal={() => setSelectedArtwork(null)}
+                    handlePurchase={setCheckoutArtwork}
                 />
             )}
-            
+
             {checkoutArtwork && (
-                <CheckoutModal 
-                    artwork={checkoutArtwork} 
-                    closeModal={() => setCheckoutArtwork(null)} 
-                    onPaymentSuccess={() => handlePaymentSuccess(checkoutArtwork.id)} 
+                <CheckoutModal
+                    artwork={checkoutArtwork}
+                    closeModal={() => setCheckoutArtwork(null)}
+                    onPaymentSuccess={() => handlePaymentSuccess(checkoutArtwork.id)}
                 />
             )}
         </div>

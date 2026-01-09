@@ -9,27 +9,22 @@ function ArtworkModal({ artwork, closeModal, handlePurchase }) {
     return (
         <div className="modal-backdrop" onClick={closeModal}>
             <div className="modal-content artwork-detail-modal" onClick={e => e.stopPropagation()}>
-                
+
                 <button className="modal-close-btn" onClick={closeModal} aria-label="닫기">&times;</button>
 
                 <div className="modal-image-container">
                     {isSoldOut && <div className="sold-out-badge">SOLD OUT</div>}
-                    <img 
-                        src={artwork.imageUrl || artwork.image} 
-                        alt={artwork.title} 
-                        className="modal-image" 
+                    <img
+                        src={artwork.imageUrl || artwork.image}
+                        alt={artwork.title}
+                        className="modal-image"
                     />
                 </div>
 
                 {/* 작품 정보 섹션 */}
                 <div className="modal-info">
                     <h2 className="modal-title">{artwork.title}</h2>
-                    
-                    {/* 🚨 삭제된 부분: 아래 줄을 지웠습니다. */}
-                    {/* <div className="title-underline"></div> */} 
-                    
                     <div className="modal-meta">
-                        {/* ... 나머지 정보 (작가, 연도, 가격) 그대로 유지 ... */}
                         <div className="info-item">
                             <span className="info-label">작가</span>
                             <span className="info-value">{artwork.artist || artwork.artistName}</span>

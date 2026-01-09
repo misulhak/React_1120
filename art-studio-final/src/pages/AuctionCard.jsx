@@ -21,19 +21,17 @@ function AuctionCard({ auction, onClick }) {
 
     return (
         <div className={`auction-card ${!auction.isLive ? 'ended' : ''}`} onClick={onClick}>
-            {/* 📸 이미지 영역: CSS에서 높이를 꽉 채우도록 설정함 */}
             <div className="image-container">
                 <img src={auction.imageUrl} alt={auction.title} className="auction-image" />
                 {auction.isLive && <span className="badge-live">LIVE</span>}
             </div>
 
-            {/* 📝 정보 영역: 여백과 폰트를 깔끔하게 정리 */}
             <div className="auction-info">
                 <div className="info-header">
                     <h3>{auction.title}</h3>
                     <p className="artist-name">{auction.artist}</p>
                 </div>
-                
+
                 <div className="bid-status">
                     <span className="label">현재 입찰가</span>
                     <strong className="current-bid">{auction.currentBid.toLocaleString()}원</strong>

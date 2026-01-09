@@ -1,4 +1,4 @@
-/* [1] 공통 변수 - 대시보드와 톤앤매너를 맞춥니다 */
+/* [1] 공통 변수 - 대시보드와 톤앤매너 */
 :root {
     --primary-green: #006400;
     --accent-orange: #ff4500;
@@ -14,11 +14,13 @@
 .inquiry-container {
     max-width: 800px;
     margin: 40px auto;
-    padding: 30px; /* 내부 여백 살짝 확대 */
+    padding: 30px;
+    /* 내부 여백 살짝 확대 */
     background-color: #fff;
     border-radius: var(--radius-default);
     box-shadow: var(--shadow-soft);
-    font-family: 'Noto Sans KR', serif; /* 폰트 통일감 */
+    font-family: 'Noto Sans KR', serif;
+    /* 폰트 통일감 */
 }
 
 /* [2] 타이틀 및 설명 */
@@ -36,26 +38,27 @@
     font-size: 1.1rem;
 }
 
-/* [3] 폼 구조 (다이어트 포인트) */
+/* [3] 폼 구조  */
 .inquiry-form {
     display: flex;
     flex-direction: column;
-    gap: 25px; /* 필드셋 사이 간격 확대 */
+    gap: 25px;
+    /* 필드셋 사이 간격 확대 */
 }
 
 fieldset {
-    border: 1px solid #eee; /* 너무 진한 선 대신 부드러운 선으로 */
+    border: 1px solid #eee;
     padding: 25px;
     border-radius: var(--radius-default);
-    margin: 0; /* 불필요한 마진 제거 */
+    margin: 0;
 }
 
 legend {
-    font-size: 1.2rem; /* 너무 크지 않게 조정 */
+    font-size: 1.2rem;
     font-weight: bold;
     color: var(--accent-orange);
     padding: 0 15px;
-    background: #fff; /* 선 중간에 깔끔하게 배치 */
+    background: #fff;
 }
 
 /* [4] 입력 필드 공통 */
@@ -63,7 +66,9 @@ legend {
     margin-bottom: 20px;
 }
 
-.form-group:last-child { margin-bottom: 0; }
+.form-group:last-child {
+    margin-bottom: 0;
+}
 
 .form-group label {
     display: block;
@@ -72,7 +77,6 @@ legend {
     color: var(--text-main);
 }
 
-/* input과 textarea 스타일 통합 */
 .form-group input:not([type="file"]),
 .form-group textarea {
     width: 100%;
@@ -106,7 +110,7 @@ legend {
     color: white;
     padding: 15px 40px;
     border: none;
-    border-radius: 30px; /* ✅ 대시보드 버튼처럼 둥글게(알약형) 변경 */
+    border-radius: 30px;
     font-size: 1.1rem;
     font-weight: bold;
     cursor: pointer;
@@ -128,9 +132,13 @@ legend {
         padding: 20px;
     }
 
-    .inquiry-container h2 { font-size: 1.8rem; }
-    
-    fieldset { padding: 15px; }
+    .inquiry-container h2 {
+        font-size: 1.8rem;
+    }
+
+    fieldset {
+        padding: 15px;
+    }
 
     .submit-button {
         width: 100%;

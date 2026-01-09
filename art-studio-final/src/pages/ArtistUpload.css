@@ -4,8 +4,8 @@
     --accent-orange: #ff4500;
     --bg-light: #f8f9fa;
     --border-soft: #eee;
-    --radius-card: 25px;      /* 대시보드와 동일 */
-    --radius-pill: 30px;      /* 버튼용 */
+    --radius-card: 25px; 
+    --radius-pill: 30px; 
     --shadow-deep: 0 15px 35px rgba(0,0,0,0.05);
 }
 
@@ -15,13 +15,13 @@
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 상단에 살짝 여백 */
+    align-items: flex-start; 
 }
 
 .upload-card {
     background: white;
     width: 100%;
-    max-width: 900px; /* 약간 더 넓게 조정 */
+    max-width: 900px; 
     padding: 50px;
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-deep);
@@ -45,7 +45,7 @@
 /* [2] 업로드 폼 레이아웃 */
 .upload-form {
     display: flex;
-    gap: 50px; /* 섹션 사이 간격 확대 */
+    gap: 50px; 
 }
 
 /* [3] 이미지 섹션 최적화 */
@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: sticky; /* 스크롤 시 이미지 고정 효과 */
+    position: sticky; 
     top: 20px;
 }
 
@@ -65,7 +65,6 @@
     border: 2px dashed var(--border-soft);
     border-radius: 15px;
     display: flex;
-    flex-content: center;
     justify-content: center;
     align-items: center;
     overflow: hidden;
@@ -156,7 +155,7 @@
 .upload-btn {
     width: 100%;
     padding: 16px;
-    background: var(--primary-green); /* 오렌지에서 그린으로 통일 (원하시면 오렌지 유지 가능) */
+    background: var(--primary-green); 
     color: white;
     border: none;
     border-radius: var(--radius-pill);

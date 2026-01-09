@@ -15,14 +15,12 @@
 .contact-content-wrapper {
     display: flex;
     gap: 40px;
-    /* 섹션 간 간격 */
     align-items: flex-start;
 }
 
 .contact-info-section,
 .contact-form-section {
     flex: 1;
-    /* 두 섹션이 동일한 너비를 갖도록 */
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
@@ -44,14 +42,12 @@
     margin-bottom: 20px;
 }
 
-/* 지도 스타일 */
 .map-container {
     border: 1px solid #ddd;
     border-radius: 5px;
     overflow: hidden;
 }
 
-/* 폼 스타일 (ArtistInquiry와 유사하게 정의) */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -98,14 +94,11 @@
     background-color: #004d00;
 }
 
-/* ==================================================================== */
 /* 3. 반응형 미디어 쿼리 */
-/* ==================================================================== */
 
 @media (max-width: 900px) {
     .contact-content-wrapper {
         flex-direction: column;
-        /* 태블릿/모바일에서 세로로 쌓이도록 */
         gap: 30px;
     }
 }
@@ -118,7 +111,6 @@
 
     .contact-submit-button {
         width: 100%;
-        /* 모바일에서 버튼 전체 너비 사용 */
         align-self: stretch;
     }
 }

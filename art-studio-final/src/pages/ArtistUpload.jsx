@@ -6,10 +6,10 @@ import './ArtistUpload.css';
 function ArtistUpload() {
     const navigate = useNavigate();
     const [previewUrl, setPreviewUrl] = useState(null);
-    const [imageBase64, setImageBase64] = useState(""); 
+    const [imageBase64, setImageBase64] = useState("");
     const user = Storage.getCurrentUser();
 
-    // 1. 보안 및 권한 체크 (useEffect 하나로 관리)
+    // 1. 보안 및 권한 체크 
     useEffect(() => {
         if (!user || user.role !== 'artist') {
             alert('작가 권한이 필요한 페이지입니다.');
@@ -73,7 +73,6 @@ function ArtistUpload() {
                 <p className="upload-desc">작가님의 소중한 작품을 갤러리에 소개해보세요.</p>
 
                 <form onSubmit={handleSubmit} className="upload-form">
-                    {/* 왼쪽: 이미지 섹션 */}
                     <div className="image-upload-section">
                         <div className={`image-preview ${!previewUrl ? 'empty' : ''}`}>
                             {previewUrl ? (
@@ -82,18 +81,17 @@ function ArtistUpload() {
                                 <span>작품 이미지를 선택해주세요</span>
                             )}
                         </div>
-                        <input 
-                            type="file" 
-                            name="image" 
-                            accept="image/*" 
-                            onChange={handleFileChange} 
-                            required 
+                        <input
+                            type="file"
+                            name="image"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                            required
                             id="file-input"
                         />
                         <label htmlFor="file-input" className="file-label">이미지 찾기</label>
                     </div>
 
-                    {/* 오른쪽: 정보 입력 섹션 */}
                     <div className="form-fields">
                         <FormGroup label="작품명 *">
                             <input name="title" type="text" placeholder="제목을 입력하세요" required />
@@ -114,9 +112,9 @@ function ArtistUpload() {
                         </div>
 
                         <FormGroup label="작품 설명">
-                            <textarea 
-                                name="description" 
-                                rows="5" 
+                            <textarea
+                                name="description"
+                                rows="5"
                                 placeholder="작품의 의미를 설명해주세요"
                             />
                         </FormGroup>

@@ -1,55 +1,128 @@
 /* [1] 레이아웃 & 카드 컨테이너 */
 .login-page {
-    display: flex; justify-content: center; align-items: center;
-    min-height: 80vh; padding: 20px; background: #f9f9f9; /* 배경색 통일 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    padding: 20px;
+    background: #f9f9f9;
+    /* 배경색 통일 */
 }
 
 .login-card {
-    background: white; width: 100%; max-width: 400px; padding: 40px;
-    border-radius: 15px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); text-align: center;
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.login-card h2 { margin: 0 0 35px; font-size: 1.6rem; color: #333; font-weight: 800; }
+.login-card h2 {
+    margin: 0 0 35px;
+    font-size: 1.6rem;
+    color: #333;
+    font-weight: 800;
+}
 
 /* [2] 인증 탭 (일반/작가 전환) */
-.auth-tabs { display: flex; padding: 5px; background: #f0f0f0; border-radius: 8px; margin-bottom: 30px; }
+.auth-tabs {
+    display: flex;
+    padding: 5px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
 
 .auth-tabs button {
-    flex: 1; padding: 10px; border: none; background: none; border-radius: 6px;
-    font-weight: bold; color: #666; cursor: pointer; transition: 0.3s;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.auth-tabs button.active { background: white; color: #ff4500; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+.auth-tabs button.active {
+    background: white;
+    color: #ff4500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
 /* [3] 폼 요소 (입력창) */
-.input-group { text-align: left; margin-bottom: 20px; }
-.input-group label { display: block; margin-bottom: 8px; font-size: 0.9rem; font-weight: bold; color: #555; }
-
-.input-group input {
-    width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;
-    box-sizing: border-box; transition: border-color 0.3s;
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
-.input-group input:focus { outline: none; border-color: #ff4500; }
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #ff4500;
+}
 
 /* [4] 로그인 버튼 */
 .submit-btn {
-    width: 100%; padding: 14px; margin-top: 10px; border: none; border-radius: 8px;
-    background: #ff4500; color: white; font-size: 1rem; font-weight: bold;
-    cursor: pointer; transition: all 0.3s;
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #ff4500;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.submit-btn:hover { background: #ff5b79; }
-.submit-btn:active { transform: scale(0.98); }
+.submit-btn:hover {
+    background: #ff5b79;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
 
 /* [5] 푸터 (회원가입 유도 등) */
-.login-footer { margin-top: 25px; font-size: 0.9rem; color: #777; }
-.link-text { color: #ff4500; font-weight: bold; text-decoration: underline; cursor: pointer; margin-left: 5px; }
+.login-footer {
+    margin-top: 25px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.link-text {
+    color: #ff4500;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+    margin-left: 5px;
+}
 
 /* [6] 에러 메시지 스타일 */
 .error-message {
-    background-color: #fff0f0;  /* 아주 연한 빨간 배경 */
-    color: #e63946;             /* 경고용 빨간색 글씨 */
+    background-color: #fff0f0;
+    color: #e63946;
     padding: 10px 15px;
     border-radius: 8px;
     font-size: 0.85rem;
@@ -59,17 +132,22 @@
     align-items: center;
     gap: 8px;
     border: 1px solid #ffe0e0;
-    /* 등장 시 부드럽게 나타나는 효과 */
     animation: fadeInDown 0.3s ease-out;
 }
 
-/* 에러 메시지 아이콘 (선택 사항: 아이콘 사용 시) */
 .error-message::before {
-    content: '⚠️'; 
+    content: '⚠️';
     font-size: 0.9rem;
 }
 
 @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

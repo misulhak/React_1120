@@ -1,192 +1,396 @@
-/* 1. Page Theme & Container */
-.gallery-container { 
-    background: #fff5f1; 
-    padding: 60px 0; 
-    min-height: 100vh; 
-    font-family: 'serif'; 
-    color: #333; 
-}
-.gallery-header { text-align: center; margin-bottom: 50px; }
-.gallery-container h2 { 
-    color: #006400; 
-    border-bottom: 2px solid #ff4500; 
-    display: inline-block; 
-    padding-bottom: 10px; 
-    margin-bottom: 15px; 
-    font-size: clamp(1.8rem, 5vw, 2.8rem); 
+.gallery-container {
+    background: #fff5f1;
+    padding: 60px 0;
+    min-height: 100vh;
+    font-family: 'serif';
+    color: #333;
 }
 
-/* 2. Controls (Search, Filter, Sort) */
-.search-and-sort-controls { 
-    max-width: 1200px; margin: 0 auto 40px; padding: 0 30px; 
-    display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; 
-}
-.filter-select, .sort-select, .search-input { 
-    padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; background: #fff; 
-    font-size: 0.95rem; outline: none; transition: 0.2s; flex: 1 1 auto; min-width: 150px;
-}
-.search-input { border: 2px solid #FFB3C1; min-width: 200px; }
-
-/* 3. Artwork Grid & Card */
-.artwork-grid { 
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); 
-    gap: 25px; max-width: 1200px; margin: 0 auto; padding: 0 30px; 
-}
-.artwork-card { 
-    background: #fff; border-radius: 12px; padding: 15px; position: relative; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s; 
-    cursor: pointer !important; overflow: hidden; z-index: 1;
-}
-.artwork-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.12); }
-.artwork-image { width: 100%; height: 240px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
-
-/* 4. Sold Out & Wish Button */
-.card-sold-out-badge { 
-    position: absolute; top: 120px; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); 
-    background: rgba(180, 0, 0, 0.85); color: #fff; padding: 10px 25px; border: 3px solid #fff; 
-    border-radius: 8px; font-weight: 900; font-size: 1.4rem; z-index: 10; pointer-events: none; 
-}
-.wish-icon-btn { 
-    position: absolute; top: 25px; right: 25px; width: 40px; height: 40px; border-radius: 50%; 
-    background: rgba(255, 255, 255, 0.9); border: 1px solid #eee; display: flex; 
-    align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; z-index: 15; 
+.gallery-header {
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-/* 5. Modal System - 고급스러운 상세페이지 디자인 */
-.modal-backdrop { 
-    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); 
-    display: flex; justify-content: center; align-items: center; 
-    z-index: 2000; backdrop-filter: blur(5px); padding: 20px; 
+.gallery-container h2 {
+    color: #006400;
+    border-bottom: 2px solid #ff4500;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
 }
 
-.artwork-detail-modal { 
-    background: #fff; padding: 0; border-radius: 20px; width: 100%; 
-    max-width: 500px; max-height: 90vh; position: relative; 
-    overflow-y: auto; box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+.search-and-sort-controls {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-select,
+.sort-select,
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.2s;
+    flex: 1 1 auto;
+    min-width: 150px;
+}
+
+.search-input {
+    border: 2px solid #FFB3C1;
+    min-width: 200px;
+}
+
+.artwork-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.artwork-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+    cursor: pointer !important;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.artwork-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+.artwork-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card-sold-out-badge {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    background: rgba(180, 0, 0, 0.85);
+    color: #fff;
+    padding: 10px 25px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    font-weight: 900;
+    font-size: 1.4rem;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.wish-icon-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 15;
+}
+
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(5px);
+    padding: 20px;
+}
+
+.artwork-detail-modal {
+    background: #fff;
+    padding: 0;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    position: relative;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
     animation: fadeInUp 0.4s ease-out;
 }
 
-/* 모달 내 이미지 제어 */
 .modal-image-container {
-    width: 100%; height: 380px; position: relative; background: #f9f9f9;
+    width: 100%;
+    height: 380px;
+    position: relative;
+    background: #f9f9f9;
 }
+
 .modal-image {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
-/* 모달 설명란 패딩 및 정렬 */
-.modal-info { padding: 35px; background: #fff; }
-
-.modal-title { 
-    margin: 0; font-size: 2.2rem; color: #006400; font-weight: 700; letter-spacing: -1px; 
+.modal-info {
+    padding: 35px;
+    background: #fff;
 }
 
-/* 제목 아래 오렌지 강조선 */
+.modal-title {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #006400;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
 .title-underline {
-    width: 50px; height: 4px; background: #ff4500; margin: 15px 0 25px 0;
+    width: 50px;
+    height: 4px;
+    background: #ff4500;
+    margin: 15px 0 25px 0;
 }
 
-/* 상세 정보 리스트 (작가, 연도, 가격) */
-.modal-meta { margin-bottom: 25px; }
+.modal-meta {
+    margin-bottom: 25px;
+}
 
 .info-item {
-    display: flex; margin-bottom: 12px; font-size: 1.1rem; align-items: baseline;
+    display: flex;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    align-items: baseline;
 }
 
 .info-label {
-    width: 90px; color: #999; font-weight: bold; font-size: 0.95rem;
+    width: 90px;
+    color: #999;
+    font-weight: bold;
+    font-size: 0.95rem;
 }
 
-.info-value { color: #333; font-weight: 500; }
+.info-value {
+    color: #333;
+    font-weight: 500;
+}
 
-.info-value.price { color: #ff4500; font-weight: 800; font-size: 1.4rem; }
+.info-value.price {
+    color: #ff4500;
+    font-weight: 800;
+    font-size: 1.4rem;
+}
 
-/* 작품 설명 박스 디자인 */
 .artwork-description-box {
-    background: #fcfcfc; 
-    border-top: 1px solid #eee; 
+    background: #fcfcfc;
+    border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
     margin: 25px 0;
-    /* 박스 자체의 상하 간격을 조절합니다 */
-    padding: 20px 0; 
+    padding: 20px 0;
 }
 
-.desc-label { 
-    display: block; 
-    font-size: 0.85rem; 
-    color: #006400; 
-    font-weight: bold; 
-    margin-bottom: 12px; /* 라벨과 본문 사이 간격 확대 */
-    padding: 0 15px; /* 라벨도 본문과 줄을 맞추기 위해 좌우 여백 추가 */
-    text-transform: uppercase; 
-    letter-spacing: 1px; 
+.desc-label {
+    display: block;
+    font-size: 0.85rem;
+    color: #006400;
+    font-weight: bold;
+    margin-bottom: 12px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.desc-text { 
-    color: #666; 
-    line-height: 1.8; 
-    font-style: italic; 
-    margin: 0; 
+.desc-text {
+    color: #666;
+    line-height: 1.8;
+    font-style: italic;
+    margin: 0;
     font-size: 1.05rem;
-    /* 핵심 수정: 텍스트가 박스 벽에 붙지 않도록 좌우 여백을 넉넉히 줍니다 */
-    padding: 0 20px; 
-    word-break: keep-all; /* 단어 단위로 줄바꿈되어 더 깔끔하게 보입니다 */
+    padding: 0 20px;
+    word-break: keep-all;
 }
 
-/* 6. Form & Buttons (소장하기 버튼 및 결제 버튼) */
-.purchase-btn, .final-checkout-btn, .place-bid-btn { 
-    width: 100%; padding: 18px; border-radius: 12px; border: none; 
-    background: #006400; color: #fff; font-size: 1.1rem; font-weight: bold; 
-    cursor: pointer; margin-top: 15px; transition: 0.3s;
+.purchase-btn,
+.final-checkout-btn,
+.place-bid-btn {
+    width: 100%;
+    padding: 18px;
+    border-radius: 12px;
+    border: none;
+    background: #006400;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
     box-shadow: 0 5px 15px rgba(0, 100, 0, 0.2);
 }
 
-.purchase-btn:hover:not(:disabled), .final-checkout-btn:hover, .place-bid-btn:hover { 
-    background: #004d00; transform: translateY(-3px); 
+.purchase-btn:hover:not(:disabled),
+.final-checkout-btn:hover,
+.place-bid-btn:hover {
+    background: #004d00;
+    transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 100, 0, 0.3);
 }
 
-.purchase-btn.sold-out { background: #ccc; cursor: not-allowed; box-shadow: none; }
+.purchase-btn.sold-out {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
 
-.final-checkout-btn { background: #ff4500; box-shadow: 0 5px 15px rgba(255, 69, 0, 0.2); }
-.final-checkout-btn:hover { background: #e63e00; box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3); }
+.final-checkout-btn {
+    background: #ff4500;
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.2);
+}
 
-/* 닫기 버튼 스타일 */
+.final-checkout-btn:hover {
+    background: #e63e00;
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.3);
+}
+
 .modal-close-btn {
-    position: absolute; top: 15px; right: 20px; background: rgba(255,255,255,0.8);
-    border: none; font-size: 2rem; width: 40px; height: 40px; border-radius: 50%;
-    cursor: pointer; z-index: 100; transition: 0.2s; display: flex; align-items: center; justify-content: center;
-}
-.modal-close-btn:hover { background: #fff; color: #ff4500; transform: rotate(90deg); }
-
-/* 결제 정보 요약 박스 */
-.order-summary-box { 
-    background: #fff9f6; padding: 20px; border-radius: 12px; margin: 20px 0; border: 1px dashed #ffb3c1; 
-}
-.order-summary-box p { 
-    margin: 10px 0; display: flex; justify-content: space-between; 
-    font-size: 1rem; color: #444; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 8px; 
-}
-.order-summary-box p:last-child { border-bottom: none; }
-.order-summary-box .total-price-line { 
-    font-size: 1.2rem; font-weight: bold; color: #ff4500; margin-top: 10px; padding-top: 10px; 
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* 7. Responsive */
+.modal-close-btn:hover {
+    background: #fff;
+    color: #ff4500;
+    transform: rotate(90deg);
+}
+
+.order-summary-box {
+    background: #fff9f6;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px 0;
+    border: 1px dashed #ffb3c1;
+}
+
+.order-summary-box p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #444;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding-bottom: 8px;
+}
+
+.order-summary-box p:last-child {
+    border-bottom: none;
+}
+
+.order-summary-box .total-price-line {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff4500;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
 @media (max-width: 768px) {
-    .search-and-sort-controls { flex-direction: column; align-items: stretch; }
-    .artwork-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-    .artwork-detail-modal { width: 95%; max-height: 95vh; }
-    .modal-info { padding: 25px; }
+    .search-and-sort-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .artwork-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .artwork-detail-modal {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-info {
+        padding: 25px;
+    }
 }
 
-/* 8. Load More Button */
-.load-more-container { text-align: center; margin: 60px 0; animation: fadeInUp 0.8s ease-out; }
+.load-more-container {
+    text-align: center;
+    margin: 60px 0;
+    animation: fadeInUp 0.8s ease-out;
+}
+
 .load-more-btn {
-    background: #006400; color: white; padding: 15px 60px; font-size: 1.1rem; font-weight: bold; 
-    border: none; border-radius: 50px; cursor: pointer; transition: 0.3s;
+    background: #006400;
+    color: white;
+    padding: 15px 60px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.load-more-btn.close-btn { background: #666; }
 
-@keyframes heartBeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.load-more-btn.close-btn {
+    background: #666;
+}
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

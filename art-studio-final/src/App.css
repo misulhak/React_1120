@@ -16,32 +16,22 @@ body {
 .page-container {
   display: flex;
   flex-direction: column;
-  /* 🚨 변경: 요소들을 Header -> Main -> Footer 순서로 세로로 쌓습니다. */
   min-height: 100vh;
 }
 
 /* 2. 메인 콘텐츠 영역 (Header와 Footer 사이의 공간을 차지) */
 .main-content {
   flex-grow: 1;
-  /* 🚨 변경: 남은 세로 공간을 모두 차지하여 푸터를 바닥으로 밀어냅니다. */
-
-  /* 🚨 제거: 세로 헤더를 위한 마진 제거 */
-  /* margin-left: 250px; */
 
   padding: 20px 0;
-  /* 상단 가로 헤더와 겹치지 않도록 적절히 조정 */
 
   display: flex;
   flex-direction: column;
-  /* 내부 콘텐츠(content-wrapper)를 세로로 쌓기 위함 (Sticky Footer 유지) */
-
-  /* min-height: 100vh; 이 속성은 flex-grow: 1로 대체됩니다. */
 }
 
 /* 3. 콘텐츠를 감싸는 Wrapper 클래스 */
 .content-wrapper {
   flex-grow: 1;
-  /* 페이지 콘텐츠의 최대 너비 제한 및 중앙 정렬을 여기서 설정합니다. */
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
@@ -50,13 +40,10 @@ body {
 
 /* 4. 푸터 기본 스타일 */
 footer {
-  /* 이 스타일은 Footer.jsx 컴포넌트에 적용되어야 합니다. */
-  /* main-content 외부, layout-container 바로 안에 있는 경우 */
   padding: 15px 0;
   text-align: center;
   font-size: 0.9em;
   color: #666;
   background-color: #333;
-  /* Footer 배경색 추가 */
   color: white;
 }
