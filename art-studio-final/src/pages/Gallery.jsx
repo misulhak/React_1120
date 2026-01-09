@@ -21,21 +21,21 @@ import imgYellowGreen from '../images/yellowGreen.jpg';
 import imgFlowerAndButterfly from '../images/flowerAndButterfly.jpg';
 
 const INITIAL_ARTWORKS = [
-    { id: 'seed-1', title: "밀밭", artistName: "이아름", date: "2025-12-21", price: 1111111, image: imgGreen, description: "산들산들", status: "전시 중", views: 10 },
-    { id: 'seed-2', title: "웅덩이", artistName: "이한나", date: "2020-12-20", price: 1111111, image: imgPuddle, description: "일렁일렁", status: "전시 중", views: 10 },
-    { id: 'seed-3', title: "숲", artistName: "선하영", date: "2018-10-01", price: 1111111, image: imgForest, description: "구불구불", status: "전시 중", views: 10 },
-    { id: 'seed-4', title: "꿈", artistName: "최명헌", date: "2009-05-17", price: 1111111, image: imgDream, description: "아른아른", status: "전시 중", views: 10 },
-    { id: 'seed-5', title: "꽃", artistName: "백종현", date: "2025-02-22", price: 1111111, image: imgflower, description: "흔들흔들", status: "전시 중", views: 10 },
-    { id: 'seed-6', title: "금붕어", artistName: "오창준", date: "2015-06-10", price: 1111111, image: imgGoldFish, description: "뻐끔뻐끔", status: "전시 중", views: 10 },
-    { id: 'seed-7', title: "메론소다", artistName: "안창현", date: "2025-12-21", price: 1111111, image: imgMelonSoda, description: "호록호록", status: "전시 중", views: 10 },
-    { id: 'seed-8', title: "볕뉘", artistName: "김영준", date: "2013-07-22", price: 1111111, image: imgTiezang, description: "반짝반짝", status: "전시 중", views: 10 },
-    { id: 'seed-9', title: "정원", artistName: "김상준", date: "2015-08-13", price: 1111111, image: imgGarden, description: "하늘하늘", status: "전시 중", views: 10 },
-    { id: 'seed-10', title: "놀이", artistName: "함창주", date: "2024-10-30", price: 1111111, image: imgHangOut, description: "총총", status: "전시 중", views: 10 },
-    { id: 'seed-11', title: "사프란", artistName: "이송아", date: "2016-02-07", price: 1111111, image: imgSaffron, description: "", status: "솔솔", views: 10 },
-    { id: 'seed-12', title: "윤슬", artistName: "정규원", date: "2019-05-08", price: 1111111, image: imgSparkle, description: "", status: "촤르르르", views: 10 },
-    { id: 'seed-13', title: "연두", artistName: "고건우", date: "2004-01-01", price: 1111111, image: imgYellowGreen, description: "초롱초롱", status: "전시 중", views: 10 },
-    { id: 'seed-14', title: "해질녘", artistName: "정용준", date: "2013-11-15", price: 1111111, image: imgSunset, description: "뉘엿뉘엿", status: "전시 중", views: 10 },
-    { id: 'seed-15', title: "화접", artistName: "이희정", date: "2023-09-17", price: 1111111, image: imgFlowerAndButterfly, description: "팔랑팔랑", status: "전시 중", views: 10 }
+    { id: 'seed-1', title: "밀밭", artistName: "이아름", date: "2025-12-21", price: 1111111, image: imgGreen, description: "산들산들하게 움직이는 밀밭의 생명력을 담았습니다.", status: "전시 중", views: 10 },
+    { id: 'seed-2', title: "웅덩이", artistName: "이한나", date: "2020-12-20", price: 1111111, image: imgPuddle, description: "일렁이는 물결 위의 고요함을 표현했습니다.", status: "전시 중", views: 10 },
+    { id: 'seed-3', title: "숲", artistName: "선하영", date: "2018-10-01", price: 1111111, image: imgForest, description: "깊은 숲속의 신비로운 공기를 그렸습니다.", status: "전시 중", views: 10 },
+    { id: 'seed-4', title: "꿈", artistName: "최명헌", date: "2009-05-17", price: 1111111, image: imgDream, description: "몽환적인 꿈속의 한 장면입니다.", status: "전시 중", views: 10 },
+    { id: 'seed-5', title: "꽃", artistName: "백종현", date: "2025-02-22", price: 1111111, image: imgflower, description: "화사하게 피어난 봄의 기운을 담았습니다.", status: "전시 중", views: 10 },
+    { id: 'seed-6', title: "금붕어", artistName: "오창준", date: "2015-06-10", price: 1111111, image: imgGoldFish, description: "자유롭게 헤엄치는 금붕어의 움직임입니다.", status: "전시 중", views: 10 },
+    { id: 'seed-7', title: "메론소다", artistName: "안창현", date: "2025-12-21", price: 1111111, image: imgMelonSoda, description: "청량감 넘치는 일상의 갈증 해소.", status: "전시 중", views: 10 },
+    { id: 'seed-8', title: "볕뉘", artistName: "김영준", date: "2013-07-22", price: 1111111, image: imgTiezang, description: "나뭇잎 사이로 비치는 따스한 햇살.", status: "전시 중", views: 10 },
+    { id: 'seed-9', title: "정원", artistName: "김상준", date: "2015-08-13", price: 1111111, image: imgGarden, description: "평화로운 오후의 비밀 정원.", status: "전시 중", views: 10 },
+    { id: 'seed-10', title: "놀이", artistName: "함창주", date: "2024-10-30", price: 1111111, image: imgHangOut, description: "아이들의 순수한 즐거움을 담은 작품.", status: "전시 중", views: 10 },
+    { id: 'seed-11', title: "사프란", artistName: "이송아", date: "2016-02-07", price: 1111111, image: imgSaffron, description: "은은한 향기가 느껴지는 보랏빛 물결.", status: "전시 중", views: 10 },
+    { id: 'seed-12', title: "윤슬", artistName: "정규원", date: "2019-05-08", price: 1111111, image: imgSparkle, description: "햇빛을 받아 반짝이는 바다의 물결.", status: "전시 중", views: 10 },
+    { id: 'seed-13', title: "연두", artistName: "고건우", date: "2004-01-01", price: 1111111, image: imgYellowGreen, description: "갓 돋아난 새싹의 싱그러움.", status: "전시 중", views: 10 },
+    { id: 'seed-14', title: "해질녘", artistName: "정용준", date: "2013-11-15", price: 1111111, image: imgSunset, description: "하루를 마무리하는 붉은 노을의 위로.", status: "전시 중", views: 10 },
+    { id: 'seed-15', title: "화접", artistName: "이희정", date: "2023-09-17", price: 1111111, image: imgFlowerAndButterfly, description: "꽃과 나비의 아름다운 조화.", status: "전시 중", views: 10 }
 ];
 
 function Gallery() {
@@ -56,7 +56,6 @@ function Gallery() {
         const localStorageData = JSON.parse(localStorage.getItem('galleryItems') || '[]');
         const savedItems = localStorageData.length > 0 ? localStorageData : INITIAL_ARTWORKS;
         
-        // 만약 로컬스토리지에 데이터가 아예 없었다면 초기 데이터 저장
         if (localStorageData.length === 0) {
             localStorage.setItem('galleryItems', JSON.stringify(INITIAL_ARTWORKS));
         }
@@ -70,7 +69,7 @@ function Gallery() {
             imageUrl: item.image,
             description: item.description,
             views: item.views || 0,
-            status: item.status // '판매 완료' 혹은 '전시 중'
+            status: item.status
         }));
         setAllArtworks(formatted);
 
@@ -90,22 +89,19 @@ function Gallery() {
         setVisibleCount(9);
     }, [searchTerm, selectedArtist, selectedYear]);
 
-    // ✅ 결제 완료 처리 로직 (이 부분이 정확해야 중복 구매가 안 됩니다)
     const handlePaymentSuccess = (artworkId) => {
-        // 1. LocalStorage 원본 데이터(galleryItems) 업데이트
         const savedItems = JSON.parse(localStorage.getItem('galleryItems') || '[]');
         const updatedStorage = savedItems.map(item => 
             item.id === artworkId ? { ...item, status: '판매 완료' } : item
         );
         localStorage.setItem('galleryItems', JSON.stringify(updatedStorage));
 
-        // 2. 현재 메모리(State) 업데이트
         setAllArtworks(prev => prev.map(item => 
             item.id === artworkId ? { ...item, status: '판매 완료' } : item
         ));
         
         setCheckoutArtwork(null);
-        setSelectedArtwork(null); // 혹시 열려있을 상세창도 닫기
+        setSelectedArtwork(null); 
         alert("결제가 완료되었습니다! 판매 완료 표시를 확인하세요.");
     };
 
@@ -122,11 +118,8 @@ function Gallery() {
     };
 
     const handleArtworkClick = (artwork) => {
-        // ✅ 이미 판매 완료된 작품이면 아무것도 하지 않음 (중복 구매 원천 봉쇄)
         if (artwork.status === '판매 완료') return;
-
         setSelectedArtwork(artwork);
-        if (!artwork.id) return;
         
         const savedItems = JSON.parse(localStorage.getItem('galleryItems') || '[]');
         const updated = savedItems.map(item =>
@@ -178,12 +171,10 @@ function Gallery() {
             <div className="artwork-grid">
                 {filteredArtworks.slice(0, visibleCount).map((artwork) => {
                     const isSoldOut = artwork.status === '판매 완료';
-                    
                     return (
                         <div 
                             key={artwork.id} 
                             className={`artwork-card ${isSoldOut ? 'is-sold-out' : ''}`}
-                            // ✅ 판매 완료된 카드는 클릭 이벤트를 실행하지 않음
                             onClick={() => !isSoldOut && handleArtworkClick(artwork)}
                             style={{ cursor: isSoldOut ? 'default' : 'pointer' }}
                         >

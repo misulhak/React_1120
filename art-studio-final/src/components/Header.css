@@ -1,57 +1,109 @@
-/* [1] 헤더 기본 구조 */
+/* [1] 헤더 기본 구조 - 이미지 대신 그라데이션 적용 */
 .main-header {
-    position: sticky; top: 0; z-index: 1000; padding: 15px 0;
-    background: url('../images/shine.jpg') center/cover;
-    color: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
+    padding: 15px 0;
+    /* ✅ 기존 배경 이미지를 제거하고 세련된 딥그린-블랙 그라데이션 적용 */
+    background: linear-gradient(135deg, #004d00 0%, #002200 100%);
+    color: white; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .header-content {
-    max-width: 1200px; margin: 0 auto; padding: 0 30px;
-    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 30px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
 }
 
-/* [2] 로고 */
+/* [2] 로고 - 배경색과 어울리는 오렌지 포인트 */
 .logo {
-    font-size: 1.5rem; font-weight: bold; color: #ff0000; text-decoration: none;
-    background: rgba(255, 255, 255, 0.9); padding: 5px 12px; border-radius: 10px;
+    font-size: 1.6rem; 
+    font-weight: 900; 
+    color: #ff4500; /* 오렌지색으로 변경 */
+    text-decoration: none;
+    background: #ffffff; 
+    padding: 6px 15px; 
+    border-radius: 8px;
+    letter-spacing: -1px;
+    transition: 0.3s;
+}
+.logo:hover {
+    transform: scale(1.05);
 }
 
 /* [3] 네비게이션 메뉴 (알약 형태 캡슐) */
 .main-nav ul {
-    list-style: none; display: flex; align-items: center; gap: 12px;
-    margin: 0; padding: 8px 20px; border-radius: 30px;
-    background: rgba(0, 0, 0, 0.5); backdrop-filter: blur(5px);
+    list-style: none; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    margin: 0; 
+    padding: 8px 25px; 
+    border-radius: 30px;
+    /* ✅ 반투명 배경을 더 은은하게 조정 */
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .main-nav a {
-    color: white; text-decoration: none; font-size: 0.95rem;
-    transition: 0.3s; padding: 5px 2px;
+    color: rgba(255, 255, 255, 0.9); 
+    text-decoration: none; 
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s; 
+    padding: 5px 5px;
 }
 
+/* 메뉴 호버 시 오렌지색으로 강조 */
 .main-nav a:hover:not([class*="-link"]):not([class*="-btn"]):not(.login-button) { 
-    color: #ff5b79; 
+    color: #ff4500; 
 }
 
 /* [4] 공통 버튼 스타일 */
 .mypage-link, .upload-link, .login-button {
     padding: 8px 18px;
-    border-radius: 20px; font-weight: bold;
-    font-size: 0.95rem; transition: all 0.3s ease; border: 1px solid transparent;
+    border-radius: 20px; 
+    font-weight: bold;
+    font-size: 0.95rem; 
+    transition: all 0.3s ease; 
+    border: 1px solid transparent;
 }
 
 /* 마이페이지/대시보드 */
-.mypage-link { background: rgba(255, 255, 255, 0.2); border-color: rgba(255,255,255,0.3); color: white; text-decoration: none; }
-.mypage-link:hover { background: white; color: black !important; transform: translateY(-2px); }
+.mypage-link { 
+    background: rgba(255, 255, 255, 0.15); 
+    border-color: rgba(255,255,255,0.2); 
+    color: white; 
+    text-decoration: none; 
+}
+.mypage-link:hover { 
+    background: white; 
+    color: #004d00 !important; 
+    transform: translateY(-2px); 
+}
 
-/* 작품 등록 (노란색) */
-.upload-link { color: #ffda44 !important; border-color: #ffda44; text-decoration: none; }
-.upload-link:hover { background: #ffda44; color: black !important; transform: scale(1.05); }
+/* 작품 등록 (갤러리 골드/옐로우 포인트) */
+.upload-link { 
+    color: #ffda44 !important; 
+    border-color: #ffda44; 
+    text-decoration: none; 
+}
+.upload-link:hover { 
+    background: #ffda44; 
+    color: #004d00 !important; 
+    transform: scale(1.05); 
+}
 
 /* ✨ 로그인/로그아웃 버튼 집중 수정 */
 .login-item { 
-    border-left: 1px solid rgba(255,255,255,0.3); 
+    border-left: 1px solid rgba(255,255,255,0.2); 
     padding-left: 15px; 
-    margin-left: 5px; 
+    margin-left: 10px; 
     display: flex;
     align-items: center;
 }
@@ -62,7 +114,6 @@
     color: white !important; 
     display: inline-block;
     line-height: 1;
-    /* ✅ 서체 두께와 크기를 로그인/로그아웃 공통으로 고정 */
     font-weight: 800 !important; 
     font-family: inherit;
 }
@@ -70,20 +121,19 @@
 /* ✅ 로그인 & 로그아웃 버튼 배경 크기 및 스타일 통일 */
 .login-button:not(.logout-btn), 
 .logout-btn { 
-    background: #ff4500; /* 주황색 배경 */
-    box-shadow: 0 2px 12px rgba(255,69,0,0.4); 
-    padding: 9px 20px;  /* 큼직한 배경 크기 */
-    font-size: 0.95rem;     /* 서체 크기 */
-    border-radius: 25px; /* 알약 형태 */
+    background: #ff4500; 
+    box-shadow: 0 4px 15px rgba(255,69,0,0.3); 
+    padding: 10px 22px; 
+    font-size: 0.95rem; 
+    border-radius: 25px; 
 }
 
-/* ✅ Hover 시 효과 동일하게 적용 */
 .login-button:hover,
 .logout-btn:hover { 
-    background: #ff2a00 !important; /* 커서 올렸을 때 더 선명한 레드 */
+    background: #e63e00 !important; 
     color: #ffffff !important;
     transform: translateY(-2px); 
-    box-shadow: 0 4px 15px rgba(255,69,0,0.5);
+    box-shadow: 0 6px 20px rgba(255,69,0,0.4);
 }
 
 /* [5] 반응형 보정 */
@@ -93,6 +143,14 @@
 }
 
 @media (max-width: 768px) {
-    .header-content { flex-direction: column; gap: 10px; }
-    .main-nav ul { flex-wrap: wrap; justify-content: center; border-radius: 15px; }
+    .header-content { 
+        flex-direction: column; 
+        gap: 15px; 
+        padding: 10px 0;
+    }
+    .main-nav ul { 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        border-radius: 15px; 
+    }
 }
